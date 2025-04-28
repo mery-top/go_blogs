@@ -13,7 +13,7 @@ var db *sql.DB
 func Connect(){
 	var err error
 	dsn := "root:mysql@tcp(127.0.0.1:3307)/blog_db"
-	db,err := sql.Open("mysql", dsn)
+	db,err = sql.Open("mysql", dsn)
 	if err !=nil{
 		log.Fatal(err)
 	}

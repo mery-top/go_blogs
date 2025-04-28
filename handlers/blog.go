@@ -21,12 +21,12 @@ func GetPosts(w http.ResponseWriter, r *http.Request){
 
 
 func CreatePost(w http.ResponseWriter, r *http.Request){
-	var newPosts= models.Post
-	if err:= json.NewDecoder(r.body).Decode(&newPosts); err!=nil{
+	var newPosts models.Post
+	if err:= json.NewDecoder(r.Body).Decode(&newPosts); err!=nil{
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	err:= database.CreatePost()
+	err:= database.CreatePosts(newPosts)
 	if err!=nil{
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
