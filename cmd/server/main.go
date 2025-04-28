@@ -10,7 +10,8 @@ import(
 
 func main(){
 	database.Connect()
-	http.HandleFunc("/api/posts", handlers.GetPosts)
+
+  http.HandleFunc("/api/posts", handlers.GetPosts)
 	http.HandleFunc("/api/create", handlers.CreatePost)
 
 	fmt.Println("Server runnning at 8080")
