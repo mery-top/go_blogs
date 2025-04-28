@@ -20,10 +20,17 @@ func GetPosts(w http.ResponseWriter, r *http.Request){
 }
 
 
-func CreatePosts(w http.ResponseWriter, r *http.Request){
+func CreatePost(w http.ResponseWriter, r *http.Request){
 	var newPosts= models.Post
 	if err:= json.NewDecoder(r.body).Decode(&newPosts); err!=nil{
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+	err:= database.CreatePost()
+	if err!=nil{
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(newPosts)
 }
