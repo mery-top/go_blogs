@@ -1,6 +1,6 @@
 # Go Blog App
 
-A simple blog application built with Go, MySQL, and basic HTTP handlers. This app allows you to create and view blog posts through API endpoints.
+A simple blog application built with Go, MySQL, and basic HTTP handlers. This app allows you, to create and view blog posts through API endpoints.
 
 ## Features
 - **View all posts** via `/api/posts` endpoint.
